@@ -8,9 +8,9 @@ This project is a Java (SpringBoot) application that can be used as utility to w
 mvn spring-boot:run
 
 ### useful links links
-- (spring-cloud-azure-overview)[https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/spring-cloud-azure-overview]
-- (azure-spring-boot-samples)[https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/README.md]
-- (eventhubconnectionstringproperties)[https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventhubs.models.eventhubconnectionstringproperties?view=azure-java-stable]
+- [spring-cloud-azure-overview](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/spring-cloud-azure-overview)
+- [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/README.md)
+- [eventhubconnectionstringproperties](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventhubs.models.eventhubconnectionstringproperties?view=azure-java-stable)
 
 ### test
 
