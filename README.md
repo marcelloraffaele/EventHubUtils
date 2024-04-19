@@ -41,7 +41,17 @@ docker run -p 8080:8080 -e EVENTHUB_CONNECTION_STRING="Endpoint=sb://<eventhubna
 ```
 
 ## Kubernetes
+Apply the following descriptor:
+
 ```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: event-hub-utils
+type: Opaque
+stringData:
+  EVENTHUB_CONNECTION_STRING: "Endpoint=sb://<eventhubname>.servicebus.windows.net/;SharedAccessKeyName=<keyname>;SharedAccessKey=<accesskey>;EntityPath=<pathname>"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -61,7 +71,12 @@ spec:
         image: rmarcello/event-hub-utils:0.0.1
         ports:
         - containerPort: 8080  # Port inside the container
-        env:
-        - name: EVENTHUB_CONNECTION_STRING
-          value: "Endpoint=sb://<eventhubname>.servicebus.windows.net/;SharedAccessKeyName=<keyname>;SharedAccessKey=<accesskey>;EntityPath=<pathname>"
+        envFrom:
+          - secretRef:
+              name: event-hub-utils
+```
+
+or simply apply the prepared file:
+```bash
+kubectl apply -f k8s/deploy.yaml
 ```
