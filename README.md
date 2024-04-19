@@ -14,8 +14,8 @@ mvn spring-boot:run
 
 ### test
 
-http://localhost:8080/swagger-ui/index.html
-http://localhost:8080/v3/api-docs
+- [Swagger UI](http://localhost:8080/swagger-ui/index.html)
+
 
 Invoke:
 ```
@@ -38,4 +38,30 @@ more info at https://spring.io/guides/topicals/spring-boot-docker/
 ### Run
 ```bash
 docker run -p 8080:8080 -e EVENTHUB_CONNECTION_STRING="Endpoint=sb://<eventhubname>.servicebus.windows.net/;SharedAccessKeyName=<keyname>;SharedAccessKey=<accesskey>;EntityPath=<pathname>" rmarcello/event-hub-utils:0.0.1
+```
+
+## Kubernetes
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-hub-utils
+spec:
+  replicas: 1  # Number of replicas (pods) you want to run
+  selector:
+    matchLabels:
+      app: event-hub-utils
+  template:
+    metadata:
+      labels:
+        app: event-hub-utils
+    spec:
+      containers:
+      - name: event-hub-utils
+        image: rmarcello/event-hub-utils:0.0.1
+        ports:
+        - containerPort: 8080  # Port inside the container
+        env:
+        - name: EVENTHUB_CONNECTION_STRING
+          value: "Endpoint=sb://<eventhubname>.servicebus.windows.net/;SharedAccessKeyName=<keyname>;SharedAccessKey=<accesskey>;EntityPath=<pathname>"
 ```
