@@ -28,7 +28,7 @@ public class EventHubClientConfiguration {
     //private static final String STORAGE_ACCOUNT_ENDPOINT = "https://<your-storage-account-name>.blob.core.windows.net";
     //private static final String STORAGE_CONTAINER_NAME = "<your-storage-account-container-name>";
 
-    @Value("${eventhub.connection_string}")
+    @Value("${eventhub.connection.string}")
     private String connectionString;
 
     @Bean
@@ -45,6 +45,7 @@ public class EventHubClientConfiguration {
     }
 
 //    @Bean
+    // @Conditional(ListenerCondition.class)
 //    BlobContainerClientBuilder blobContainerClientBuilder() {
 //        return new BlobContainerClientBuilder().credential(new DefaultAzureCredentialBuilder()
 //                                                   .build())
