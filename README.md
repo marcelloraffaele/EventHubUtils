@@ -15,7 +15,7 @@ mvn spring-boot:run
 - [eventhubconnectionstringproperties](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventhubs.models.eventhubconnectionstringproperties?view=azure-java-stable)
 - [Spring Annotation Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html)
 
-### test
+### localhost test
 
 - [Swagger UI](http://localhost:8080/swagger-ui/index.html)
 

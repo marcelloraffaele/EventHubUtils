@@ -15,18 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.azure.messaging.eventhubs.EventData;
 import com.azure.messaging.eventhubs.EventHubProducerClient;
 import com.rmarcello.eventhubutils.beans.Result;
+import com.rmarcello.eventhubutils.consumer.LastMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-public class EventHubProducerController {
+public class EventHubUtilsController {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(EventHubProducerController.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(EventHubUtilsController.class);
 
   @Autowired
   private EventHubProducerClient producerClient;
+
+  @Autowired
+  private LastMessages lastMessages;
 
   @Operation(summary = "Utily method only to check if the service is up & running")
   @ApiResponses(value = {
@@ -37,7 +41,7 @@ public class EventHubProducerController {
     return "pong";
   }
 
-  @Operation(summary = "Sends messages to the EventHub.")
+  @Operation(summary = "Sends a message to the EventHub.")
   @ApiResponses(value = {
       @ApiResponse(responseCode = "200", description = "when the message is sent withoud problems"),
       @ApiResponse(responseCode = "400", description = "when the message is not well formed"),
@@ -65,6 +69,15 @@ public class EventHubProducerController {
       LOGGER.info("send - STOP " + r);
     }
     return r;
+  }
+
+  @Operation(summary = "Get the last messages processed by the lister (if enabled)")
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = "200", description = "Last messages processed by the lister")
+  })
+  @GetMapping("/processed")
+  public ResponseEntity<LastMessages> processed() {
+    return new ResponseEntity<>(lastMessages, HttpStatus.OK);
   }
 
 }
