@@ -1,4 +1,4 @@
-package com.rmarcello.eventhubutils;
+package com.rmarcello.eventhubutils.config;
 
 import com.azure.core.credential.AzureNamedKeyCredential;
 import com.azure.core.credential.AzureSasCredential;

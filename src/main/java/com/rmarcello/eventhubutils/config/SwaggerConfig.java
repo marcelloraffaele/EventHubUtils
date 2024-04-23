@@ -1,4 +1,4 @@
-package com.rmarcello.eventhubutils;
+package com.rmarcello.eventhubutils.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

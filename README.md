@@ -5,12 +5,15 @@ This project is a Java (SpringBoot) application that can be used as utility to w
 ## Development
 
 ### Comands
+```bash
 mvn spring-boot:run
+```
 
 ### useful links links
 - [spring-cloud-azure-overview](https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/spring-cloud-azure-overview)
 - [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/README.md)
 - [eventhubconnectionstringproperties](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventhubs.models.eventhubconnectionstringproperties?view=azure-java-stable)
+- [Spring Annotation Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html)
 
 ### test
 
@@ -33,7 +36,7 @@ curl -X 'POST' -H 'Content-Type: application/json' -d '{
 docker build --build-arg JAR_FILE=target/*.jar -t rmarcello/event-hub-utils:0.0.1 .
 ```
 
-more info at https://spring.io/guides/topicals/spring-boot-docker/
+more info at (spring-boot-docker)[https://spring.io/guides/topicals/spring-boot-docker/]
 
 ### Run
 ```bash
