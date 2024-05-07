@@ -14,6 +14,8 @@ mvn spring-boot:run
 - [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/README.md)
 - [eventhubconnectionstringproperties](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventhubs.models.eventhubconnectionstringproperties?view=azure-java-stable)
 - [Spring Annotation Condition](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Condition.html)
+- [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/main/eventhubs/spring-cloud-azure-starter-eventhubs/eventhubs-client/src/main/java/com/azure/spring/sample/eventhubs/client/EventHubClientApplication.java)
+- [eventprocessorclientbuilder](https://learn.microsoft.com/en-us/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder?view=azure-java-stable)
 
 ### localhost test
 
